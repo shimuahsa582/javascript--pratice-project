@@ -1,4 +1,6 @@
-
+body{
+	background-color: #fff;
+}
 .cart{
 	margin: 100px 0;
 	background-color: #F6F5FA;;
@@ -41,8 +43,10 @@
 .input-group{
 	width: unset;
 }
-.status{
+.col-md-4.status{
+	color: black;
 	text-align: right;
+	float: right;
 }
 .check-out{
     float: right;

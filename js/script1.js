@@ -62,10 +62,12 @@ function handleProductChange(isIncrease) {
 	document.getElementById('case_total').innerText = '$' + caseTotal;
 }
 */
+
 // ****case and phone combine function****
 function handleProductChange(product, isIncrease) {
 	const productInput = document.getElementById(product + '_count');
-	productCount = parseInt(productInput.value);
+	// productCount = parseInt(productInput.value);
+	productCount = getInputValue(product);
 
 	let productNewCount = productCount;
 	if (isIncrease == true) {
@@ -85,5 +87,38 @@ function handleProductChange(product, isIncrease) {
 	}
 
 	document.getElementById(product + '_total').innerText = '$' + productTotal;
+	calculateTotal();
+}
+/*
+// calculate function
+function calculateTotal() {
+	const phoneInput = document.getElementById('phone_count');
+	phoneCount = parseInt(phoneInput.value);
+
+	const caseInput = document.getElementById('case_count');
+	caseCount = parseInt(caseInput.value);
+
+	const totalPrice = phoneCount * 1219 + caseCount * 59;
+	document.getElementById('total_price').innerText = '$' + totalPrice;
+}
+*/
+// calculateTotal  all function and handler
+function calculateTotal() {
+	phoneCount = getInputValue('phone');
+	caseCount = getInputValue('case');
+
+	const totalPrice = phoneCount * 1219 + caseCount * 59;
+	document.getElementById('total_price').innerText = '$' + totalPrice;
+
+	const tax = (totalPrice * 0.1).toFixed(0);
+	document.getElementById('tax_amount').innerText = '$' + tax;
+
+	const grandTotal = totalPrice + tax;
+	document.getElementById('grand_total').innerText = '$' + grandTotal;
 }
 
+function getInputValue(product) {
+	const productInput = document.getElementById(product + '_count');
+	productCount = parseInt(productInput.value);
+	return productCount;
+}
