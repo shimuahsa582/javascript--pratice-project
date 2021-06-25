@@ -62,11 +62,11 @@ function handleProductChange(isIncrease) {
 	document.getElementById('case_total').innerText = '$' + caseTotal;
 }
 */
-
+// ****case and phone combine function****
 function handleProductChange(product, isIncrease) {
 	const productInput = document.getElementById(product + '_count');
 	productCount = parseInt(productInput.value);
-	
+
 	let productNewCount = productCount;
 	if (isIncrease == true) {
 		productNewCount = productCount + 1;
@@ -87,19 +87,3 @@ function handleProductChange(product, isIncrease) {
 	document.getElementById(product + '_total').innerText = '$' + productTotal;
 }
 
-/*
-function handleProductChange(product, isIncrease) {
-	const caseInput = document.getElementById(product + '_count');
-	caseCount = parseInt(caseInput.value);
-	let newCaseCount = caseCount;
-	if (isIncrease == true) {
-		newCaseCount = caseCount + 1;
-	}
-	if (isIncrease == false && caseCount > 0) {
-		newCaseCount = caseCount - 1;
-	}
-	caseInput.value = newCaseCount;
-	const caseTotal = newCaseCount * 59;
-	document.getElementById(product + '_total').innerText = '$' + caseTotal;
-}
-*/
